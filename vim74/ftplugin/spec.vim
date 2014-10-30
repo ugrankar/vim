@@ -1,8 +1,7 @@
 " Plugin to update the %changelog section of RPM spec files
 " Filename: spec.vim
-" Maintainer: Igor Gnatenko i.gnatenko.brain@gmail.com
-" Former Maintainer: Gustavo Niemeyer <niemeyer@conectiva.com> (until March 2014)
-" Last Change: Sun Mar 2 11:24 MSK 2014 Igor Gnatenko
+" Maintainer: Gustavo Niemeyer <niemeyer@conectiva.com>
+" Last Change: 2012 Mar 07
 
 if exists("b:did_ftplugin")
 	finish
@@ -151,10 +150,6 @@ if !exists("*s:ParseRpmVars")
 		execute a:strline
 		let definestr = "^[ \t]*%define[ \t]\\+" . varname . "[ \t]\\+\\(.*\\)$"
 		let linenum = search(definestr, "bW")
-		if (linenum == 0)
-			let definestr = substitute(definestr, "%define", "%global", "")
-			let linenum = search(definestr, "bW")
-		endif
 		if (linenum != -1)
 			let ret = ret .  substitute(getline(linenum), definestr, "\\1", "")
 		else

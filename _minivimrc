@@ -1,32 +1,35 @@
+"Minivimrc
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
 source $VIMRUNTIME/mswin.vim
 behave mswin
-
-set diffexpr=MyDiff()
-function MyDiff()
-  let opt = '-a --binary '
-  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
-  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
-  let arg1 = v:fname_in
-  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
-  let arg2 = v:fname_new
-  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
-  let arg3 = v:fname_out
-  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
-  let eq = ''
-  if $VIMRUNTIME =~ ' '
-    if &sh =~ '\<cmd'
-      let cmd = '""' . $VIMRUNTIME . '\diff"'
-      let eq = '"'
-    else
-      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
-    endif
-  else
-    let cmd = $VIMRUNTIME . '\diff'
-  endif
-  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
-endfunction
+"Uncomment below if gnudiff is not being used.
+"Uncomment below if gnudiff is not being used.
+"set diffexpr=MyDiff()
+"function MyDiff()
+"  let opt = '-a --binary '
+"  if &diffopt =~ 'icase' | let opt = opt . '-i ' | endif
+"  if &diffopt =~ 'iwhite' | let opt = opt . '-b ' | endif
+"  let arg1 = v:fname_in
+"  if arg1 =~ ' ' | let arg1 = '"' . arg1 . '"' | endif
+"  let arg2 = v:fname_new
+"  if arg2 =~ ' ' | let arg2 = '"' . arg2 . '"' | endif
+"  let arg3 = v:fname_out
+"  if arg3 =~ ' ' | let arg3 = '"' . arg3 . '"' | endif
+"  let eq = ''
+"  if $VIMRUNTIME =~ ' '
+"    if &sh =~ 'cmd'
+"      let cmd = '""' . $VIMRUNTIME . '\diff"'
+"      let eq = '"'
+"    else
+"      let cmd = substitute($VIMRUNTIME, ' ', '" ', '') . '\diff"'
+"    endif
+"  else
+"    let cmd = $VIMRUNTIME . '\diff'
+"  endif
+"  silent execute '!' . cmd . ' ' . opt . arg1 . ' ' . arg2 . ' > ' . arg3 . eq
+"endfunction
+"Uncomment above if gnudiff is not being used.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Personal Settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -34,11 +37,13 @@ endfunction
 "Make vim not compatible with Vi
 set nocompatible
 
+"source $VIMRUNTIME/vimrc_example.vim
+source $VIMRUNTIME/mswin.vim
+behave mswin
+
 "Filetype and pathogen settings
-"execute pathogen#infect()
 syntax on
 filetype plugin indent on
-
 set nu
 set hidden
 set ignorecase
@@ -46,10 +51,11 @@ set incsearch
 set smartcase
 set showmatch
 set autoindent
+set smartindent
 set ruler
 set vb
 set noerrorbells
-set noshowmode 
+set showmode 
 set showcmd
 set mouse=a
 set history=1000
@@ -80,17 +86,32 @@ set fileencoding=utf-8
 set termencoding=utf-8
 scriptencoding utf-8
 
-"Set seperate backup directory
-"set backupdir="C:\users\ugranp2\vim\vimbkup'
-"set directory='C:\users\ugranp2\vim\vimbkup'
+"------------------
+"Personal Mappings
+let mapleader = "-"
+let localmapleader = "\\" 
+"Move lines down
+nnoremap <leader> ddp
+"Move lines up
+nnoremap _ ddkP
+inoremap jk <esc>
+"------------------
+iabbrev recieve receive
+iabbrev percieve perceive
+iabbrev clariion CLARiiON
+iabbrev vmax Symmetrix VMAX
+iabbrev serail Serial No:
 
-"Set this in Windows only
+"Set swap, backup and undo directories.
+"NOTE - You have to create these yourself. Vim will NOT create them automatically.
+"Set swapfiles directory
+set directory=%HOMEPATH%\\vim\\vimswap//
 
-set nobackup
-set noswapfile
+"Set backup files directory
+set backupdir=%HOMEPATH%\\vim\\vimbkup//
 
-"Set directory for undo files - Turn off for vim 7.2 CentOS 6
-"set undodir="C:\users\ugranp2\vim\vimbkup"
+"Set undo directory
+set undodir=%HOMEPATH%\\vim\\vimundo//
 
 "Set listchars for a few things
 set listchars=tab:>>
@@ -151,11 +172,7 @@ set guioptions-=r
 "Colorschemes/status lines etc.
 set t_Co=512
 set background=light
-colorscheme lucius
-
-
-"set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [File\ Type=%Y]\ [Line=%l,\ Char=%v]\ [%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ [Buffer#\ %-1.3n]
-set guifont=Consolas:h12
-
+colorscheme default
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
+set guifont=Consolas:h11
 set laststatus=2

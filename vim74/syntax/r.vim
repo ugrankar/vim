@@ -3,7 +3,7 @@
 " Maintainer:	      Jakson Aquino <jalvesaq@gmail.com>
 " Former Maintainers: Vaidotas Zemlys <zemlys@gmail.com>
 " 		      Tom Payne <tom@tompayne.org>
-" Last Change:	      Wed Jul 09, 2014  10:29PM
+" Last Change:	      Sun May 19, 2013  05:59PM
 " Filenames:	      *.R *.r *.Rhistory *.Rt
 " 
 " NOTE: The highlighting of R functions is defined in the
@@ -30,16 +30,14 @@ endif
 syn case match
 
 " Comment
-syn match rCommentTodo contained "\(BUG\|FIXME\|NOTE\|TODO\):"
-syn match rComment contains=@Spell,rCommentTodo "#.*"
+syn match rComment contains=@Spell "#.*"
 
 " Roxygen
 syn match rOKeyword contained "@\(param\|return\|name\|rdname\|examples\|include\|docType\)"
 syn match rOKeyword contained "@\(S3method\|TODO\|aliases\|alias\|assignee\|author\|callGraphDepth\|callGraph\)"
 syn match rOKeyword contained "@\(callGraphPrimitives\|concept\|exportClass\|exportMethod\|exportPattern\|export\|formals\)"
 syn match rOKeyword contained "@\(format\|importClassesFrom\|importFrom\|importMethodsFrom\|import\|keywords\)"
-syn match rOKeyword contained "@\(method\|noRd\|note\|references\|seealso\|setClass\|slot\|source\|title\|usage\)"
-syn match rOKeyword contained "@\(family\|template\|templateVar\|description\|details\|inheritsParams\)"
+syn match rOKeyword contained "@\(method\|nord\|note\|references\|seealso\|setClass\|slot\|source\|title\|usage\)"
 syn match rOComment contains=@Spell,rOKeyword "#'.*"
 
 
@@ -121,7 +119,7 @@ if &filetype != "rmd" && &filetype != "rrst"
 else
   syn match rOperator    "[|!<>^~`/:]"
 endif
-syn match rOperator    "%\{2}\|%\S\{-}%"
+syn match rOperator    "%\{2}\|%\S*%"
 syn match rOpError  '\*\{3}'
 syn match rOpError  '//'
 syn match rOpError  '&&&'
@@ -166,8 +164,8 @@ syn match rLstElmt "@[a-zA-Z0-9\\._]*" contains=rDollar
 syn keyword rPreProc     library require attach detach source
 
 if &filetype == "rhelp"
-  syn match rHelpIdent '\\method'
-  syn match rHelpIdent '\\S4method'
+    syn match rHelpIdent '\\method'
+    syn match rHelpIdent '\\S4method'
 endif
 
 " Type
@@ -189,7 +187,6 @@ hi def link rArrow       Statement
 hi def link rBoolean     Boolean
 hi def link rBraceError  Error
 hi def link rComment     Comment
-hi def link rCommentTodo Todo
 hi def link rOComment    Comment
 hi def link rComplex     Number
 hi def link rConditional Conditional

@@ -1,6 +1,6 @@
-This is my 64 bit gVim for Windows 7 and related configuration files.
+My gVim with customized _vimrc and plugins.
 
-gVim Downloaded from - https://bintray.com/veegee/generic/vim_x64/view
+gVim downloaded from www.vim.org
 Consolas for Powerline fonts downloaded from another repository on Github.
 
 Please note - Please do read the comments at the top of my _vimrc. I'm not using the
