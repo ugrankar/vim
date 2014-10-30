@@ -152,11 +152,9 @@ set guioptions-=r
 set t_Co=512
 set background=light
 colorscheme lucius
-
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}
 "set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [File\ Type=%Y]\ [Line=%l,\ Char=%v]\ [%p%%]\ %{strftime(\"%d/%m/%y\ -\ %H:%M\")}\ [Buffer#\ %-1.3n]
 set guifont=Consolas\ for\ Powerline\ FixedD:h11
-
 set laststatus=2
 
 "Syntastic Settings 
