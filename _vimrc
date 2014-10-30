@@ -81,14 +81,16 @@ iabbrev clariion CLARiiON
 iabbrev vmax Symmetrix VMAX
 iabbrev serail Serial No:
 
+"Set swap, backup and undo directories.
+"NOTE - You have to create these yourself. Vim will NOT create them automatically.
 "Set swapfiles directory
-set directory=C:\\Users\\ugranp2\\vim\\vimswap//
+set directory=%HOMEPATH%\\vim\\vimswap//
 
 "Set backup files directory
-set backupdir=C:\\Users\\ugranp2\\vim\\vimbkup//
+set backupdir=%HOMEPATH%\\vim\\vimbkup//
 
 "Set undo directory
-set undodir=C:\\Users\\ugranp2\\vim\\vimundo//
+set undodir=%HOMEPATH%\\vim\\vimundo//
 
 "Set listchars for a few things
 set listchars=tab:>>
