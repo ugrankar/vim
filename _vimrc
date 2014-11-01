@@ -4,9 +4,12 @@
 "#######################################################################################################
 "Note - The mydiff function was not working and is hence removed.
 "Better method given below:
+"Go through The "Recommended Solution" section at - http://vim.wikia.com/wiki/Running_diff.
+"Better yet, read the entire article. It will really help you understand stuff if you
+"are a recent gVim user.
 "Download the GnuWin32 diff package from
 "http://gnuwin32.sourceforge.net/packages/diffutils.htm (select Complete package, except sources Setup).   
-"Then install it in a suitable location such as C:\Users\username\vim\ 
+"Then install it in a suitable location such as C:\Users\username\vim\ (Can be any other location you choose)
 "Once done, add the following to the PATH under System Variables - C:\Users\username\vim\vim74;C:\Users\username\vim\GnuWin32\bin
 "The first part lets you run vim/gvim from command prompt, and the second part makes the binaries in the GnuWin32 folder visible 
 "to the OS.
