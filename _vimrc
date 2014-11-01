@@ -61,9 +61,11 @@ call matchadd('ColorColumn', '\%81v', 100)
 
 "set encodings
 set encoding=utf-8
-set fileencoding=utf-8
+set fileencodings=ucs-bom,utf-8,latin1
 set termencoding=utf-8
 scriptencoding utf-8
+setglobal fileencoding=utf-8
+
 
 "------------------
 "Personal Mappings
@@ -74,13 +76,15 @@ nnoremap <leader> ddp
 "Move lines up
 nnoremap _ ddkP
 inoremap jk <esc>
+nnoremap -- :source $MYVIMRC <CR>
+nnoremap -= :edit $MYVIMRC <CR>
 "------------------
 iabbrev recieve receive
 iabbrev percieve perceive
 iabbrev clariion CLARiiON
 iabbrev vmax Symmetrix VMAX
 iabbrev serail Serial No:
-
+iabbrev navi naviseccli -h
 "Set swap, backup and undo directories.
 "NOTE - You have to create these yourself. Vim will NOT create them automatically.
 "Set swapfiles directory
@@ -93,7 +97,10 @@ set backupdir=%HOMEPATH%\\vim\\vimbkup//
 set undodir=%HOMEPATH%\\vim\\vimundo//
 
 "Set listchars for a few things
-set listchars=tab:>>
+"set list
+"set listchars=tab:>>,eol:^
+set listchars=tab:→→,nbsp:►
+
 
 "Set command to clear registers.
 function! ClearRegisters()
@@ -117,6 +124,7 @@ set cpoptions+=$
 nnoremap <F3> :set hlsearch!<CR>
 
 nnoremap <F8> :NeoComplCacheEnable<CR>
+nnoremap <F4>:set nolist!<CR>
 
 "Search visually selected text"
 " Search for selected text, forwards or backwards.
@@ -145,8 +153,11 @@ ino <left> <Nop>
 ino <Right> <Nop>
 "Disable Menu, Scroll and Title Bar
 "set guioptions=M
-"set guioptions-=T
-set guioptions-=r
+"set guioptions=T
+"set guioptions=r
+"Just visually select to copy paste from vim to other applications.
+"No need to press y or Y.
+set guioptions=P
 
 "Colorschemes/status lines etc.
 set t_Co=512
